@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remoer.member.mapper.MemberMapper">
+
+	<select id="login" resultType="MemberVO">
+		SELECT id, nickname, grade FROM member WHERE id = #{id} AND pw = #{pw}
+	</select>
+	
+	<select id="findId" resultType="String">
+		SELECT id FROM member WHERE name = #{name} AND tel = #{tel}
+	</select>
+	
+	<select id="findPw" resultType="String">
+		SELECT id FROM member WHERE id = #{id} AND name = #{name} AND tel = #{tel}
+	</select>
+	
+	<update id="updatePw">
+		UPDATE member SET pw = #{pw} WHERE id = #{id}
+	</update>
+
+
+<!-- 	public String findPw(MemberVO vo); -->
+	
+<!-- 	public String updatePw(String id); -->
+
+<!-- 	public List<MemberVO> list(); -->
+
+<!-- 	public MemberVO view(String id); -->
+
+<!-- 	public Integer join(MemberVO vo); -->
+</mapper>
