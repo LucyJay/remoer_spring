@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.remoer.member.mapper.MemberMapper">
 
-	<select id="login" resultType="MemberVO">
+	<select id="login" resultType="com.remoer.member.vo.MemberVO">
 		SELECT id, nickname, grade FROM member WHERE id = #{id} AND pw = #{pw}
 	</select>
 	
@@ -17,17 +17,12 @@
 	<update id="updatePw">
 		UPDATE member SET pw = #{pw} WHERE id = #{id}
 	</update>
-
-	<select id="list" resultType="MemberVO">
-		SELECT m.id, m.nickname, m.name, m.reg_date, m.login_date, g.grade_name, m.status
-		FROM member m, grade g
-	</select>
 	
 	<sql id="search">
 		m.id LIKE '%'||#{word}||'%'
 	</sql>
 	
-	<select id="list" resultType="MemberVO">
+	<select id="list" resultType="com.remoer.member.vo.MemberVO">
 		SELECT m.id, m.nickname, m.name, m.birth, m.address, m.tel, m.email, m.reg_date, m.login_date, g.grade_name, m.status
 		FROM member m, grade g
 	</select>

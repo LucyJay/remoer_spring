@@ -14,7 +14,7 @@ import lombok.extern.log4j.Log4j;
 @Component
 public class LogAdvice {
 
-	@Around("execution(* com.remoer.*.*service*.*(..))")
+	@Around("execution(* com.remoer.*.service.*.*(..))")
 	public Object logTime(ProceedingJoinPoint pjp) {
 
 		log.info(" * 실행 객체 : " + pjp.getTarget());
